@@ -13,7 +13,7 @@ You will need [nodejs and npm](https://nodejs.org/). The demo was created using 
 First [setup your board](https://github.com/rwaldron/johnny-five/wiki/Getting-Started#trouble-shooting)
 
 ```
-git clone https://github.com/jcblw/led-matrix-demo
+git clone https://github.com/jcblw/led-matrix-demo.git
 cd led-matrix-demo
 ```
 
