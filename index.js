@@ -1,23 +1,38 @@
 const five = require('johnny-five')
+const letters = require('./src/letters')
+const createNArray = require('./src/create-n-array')
 const board = new five.Board()
+const WIDTH = 16
+const HEIGHT = 8
 
 board.on('ready', function () {
   const matrix = new five.Led.Matrix({
     controller: 'HT16K33',
-    dims: '8x16',
+    dims: `${HEIGHT}x${WIDTH}`,
     rotation: 2
   })
 
-  const heart = [
-    '0110011001100110',
-    '1001100110011001',
-    '1000000110000001',
-    '1000000110000001',
-    '0100001001000010',
-    '0010010000100100',
-    '0001100000011000',
-    '0000000000000000'
-  ]
+  const phrase = 'jsla'
 
-  matrix.draw(heart)
+  const data = createNArray(HEIGHT).map((n, i) => {
+    return phrase
+      .split('')
+      .map(l => letters[l][i])
+      .join('')
+  })
+
+  let curr = 0
+  let max = phrase.length * HEIGHT
+
+  function draw () {
+    if (curr === max) return
+    const substr = data.map((line) => {
+      return line.substr(curr, WIDTH)
+    })
+    matrix.draw(substr)
+    curr += 1
+    setTimeout(draw, 500)
+  }
+
+  draw()
 })
