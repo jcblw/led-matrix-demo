@@ -1,5 +1,7 @@
 ## Led Matrix Demo
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/jcblw/led-matrix-demo.svg)](https://greenkeeper.io/)
+
 This is a simple demo of controlling an [16x8 1.2" LED Matrix](https://www.adafruit.com/product/2041) with an [Arduino Uno](https://www.arduino.cc/en/Main/ArduinoBoardUno) board.
 
 ![how to hook up](https://github.com/rwaldron/johnny-five/raw/master/docs/breadboard/led-matrix-HT16K33-16x8.png)
